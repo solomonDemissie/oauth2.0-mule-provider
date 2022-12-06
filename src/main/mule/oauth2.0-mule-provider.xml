@@ -19,6 +19,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<http:listener doc:name="Listener" doc:id="246c3382-94db-4c6e-8686-fe10049d5320" config-ref="HTTP_Listener_config" path="/clientCreate"/>
 		<oauth2-provider:create-client doc:name="Create client" doc:id="9ba255f5-64e8-4c38-902d-554fe8229589" config-ref="OAuth2_Provider_Config" clientId="#[attributes.headers.client_id]" type="CONFIDENTIAL" secret="#[attributes.headers.client_id]" clientName="#[attributes.headers.client_id]" description='#[""]' principal='#[""]' redirectUris='#[["google.com"]]' authorizedGrantTypes='#[["CLIENT_CREDENTIALS"]]' scopes='#[["READ"]]'/>
 		<set-payload value='#["client is created !!"]' doc:name="Set Payload" doc:id="86fad6e5-af0d-4af5-8cff-0b331b5e740c" />
+		<logger level="INFO" doc:name="Logger" doc:id="edafc77c-cbc9-4b93-9d86-37e6a9e2a667" />
 	</flow>
 	<flow name="oauth2.0-mule-providerFlow1" doc:id="497e3c1d-a78d-4a30-bb69-76ae83aa0bd3" >
 		<http:listener doc:name="Listener" doc:id="4c290062-9566-443d-ae0a-311635257972" config-ref="HTTP_Listener_config" path="/validate"/>
